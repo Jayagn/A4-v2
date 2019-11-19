@@ -9,12 +9,14 @@
 #include <sstream>
 #include <typeinfo>
 #include <stdlib.h>
+#include <algorithm>
+#include <bits/stdc++.h>
 #include <memory>
 #define MAX 1300
 
 
 using namespace std;
-using namespace Minisat;
+//using namespace Minisat;
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -129,9 +131,6 @@ int main(){
 
         if(cmd == 'E')
         {
-            for(int i=0;i<MAX;i++){
-                adj[i].clear();
-            }
             string edges = word.substr(0);
             edges.erase(0,1);
             edges.pop_back();
@@ -139,20 +138,26 @@ int main(){
             edges.erase(remove(edges.begin(),edges.end(),'>'),edges.end());
             istringstream f(edges);
             string s;
+	    int flag;
             while (getline(f, s, ','))
             {
                 if (stoi(s) >= vertices)
-                { std::cerr<<"Error: Vertex mentioned in edge is greater than number of vertices."<<std::endl;
-
-                    break;
+                {
+			std::cerr<<"Error: Vertex mentioned in edge is greater than number of vertices."<<std::endl;
+                    	flag = 1;
+			break;
                 }
             }
+	    if(flag == 1){
+		    flag = 0;
+		    continue;
+	    }
             replace(edges.begin(),edges.end(),',',' ');
             edges += ' ';
             newedges = (edges.length()/4);
             int *arr = (int*)malloc(sizeof(int)*MAX);
 
-		   	int index = 0;
+	    int index = 0;
             string number;
 
             for(auto x : edges)
@@ -175,20 +180,13 @@ int main(){
             index = 0;
             for(int i = 0;i<newedges;i++)
             {
-				vector<int> vt;
+		vector<int> vt;
                 for (int j=0;j<2;j++){
                     vt.push_back(arr[index]);
 					index++;
                 }
 				edge.push_back(vt);
 
-            }
-            for(int i=0;i<edge.size();i++){
-                for(int j=0;j<edge[i].size();j++){
-                    cout<<edge[i][j]<<" ";
-
-                }
-                cout<<endl;
             }
 
 
