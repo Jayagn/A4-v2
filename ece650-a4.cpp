@@ -19,13 +19,8 @@ using namespace Minisat;
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-/*void add_edges(vector<int> adj[], int src, int dest)
-{
-    adj[src].push_back(dest);
-    adj[dest].push_back(src);
-}*/
 
-void get_vertex_cover(int vertices,vector < vector<int> > edge_storage){
+void get_vertex_cover(int vertices,vector<int> edge_storage[],int newedges){
 
     for (int k = 1; k <= vertices; ++k){
           Minisat::vec<Minisat::Lit> literals;
@@ -59,7 +54,7 @@ void get_vertex_cover(int vertices,vector < vector<int> > edge_storage){
     }}}
     //No more than one vertex appears in themth position of the vertex cover.
     for (int m =0;m<k;++m){
-        for (int p =0;p<vertices-1;++p){
+        for (int p =0;p<vertices;++p){
             for (int q =0;q<vertices;++q){
                 if(q<p){
                 literals.push(~Minisat::mkLit(Minisat::Var(k*p + m)));
@@ -68,7 +63,7 @@ void get_vertex_cover(int vertices,vector < vector<int> > edge_storage){
                 literals.clear();
             }
     }}}
-          for (int j = 0; j < edge_storage.size(); ++j) {
+          for (int j = 0; j < newedges; ++j) {
             for (int you = 0; you < k; ++you) {
               literals.push(Minisat::mkLit(Minisat::Var(k*edge_storage[j][0] + you)));
               literals.push(Minisat::mkLit(Minisat::Var(k*edge_storage[j][1] + you)));
@@ -78,7 +73,6 @@ void get_vertex_cover(int vertices,vector < vector<int> > edge_storage){
 
           }
           auto sat = solver.solve();
-
           if (sat) {
             for (int i = 0; i < vertices; ++i)
               for (int j = 0; j < k; ++j) {
@@ -98,7 +92,7 @@ int main(){
     int vertices;
     int nedges = 0, newedges;
     int num_of_edges = 0;
-	vector<vector<int>> edge;
+	vector<int> edge[512];
 
 
     //vector<int>adj[MAX];
@@ -121,7 +115,6 @@ int main(){
                 }
             }
         }
-
         if(cmd == 'V')
         {
             vertices = stoi(word.substr(0));
@@ -129,14 +122,23 @@ int main(){
 
         if(cmd == 'E')
         {
-            string edges = word.substr(0);
-            edges.erase(0,1);
-            edges.pop_back();
-            edges.erase(remove(edges.begin(),edges.end(),'<'),edges.end());
-            edges.erase(remove(edges.begin(),edges.end(),'>'),edges.end());
+			string edges = word;
+            edges.erase(remove(edges.begin(),edges.end(),'{'),edges.end());
+            edges.erase(remove(edges.begin(),edges.end(),'}'),edges.end());
+			edges.erase(remove(edges.begin(),edges.end(),'<'),edges.end());
+			edges.erase(remove(edges.begin(),edges.end(),'>'),edges.end());
+			int flag1;
+			if(edges.length() == 0){
+					std::cout<<"\n";
+					flag1 = 1;
+			}
+			if(flag1 == 1){
+					flag1 = 0;
+					continue;
+			}
             istringstream f(edges);
             string s;
-	    int flag;
+	    	int flag;
             while (getline(f, s, ','))
             {
                 if (stoi(s) >= vertices)
@@ -146,14 +148,13 @@ int main(){
 			break;
                 }
             }
-	    if(flag == 1){
+	   	 	if(flag == 1){
 		    flag = 0;
 		    continue;
 	    }
             replace(edges.begin(),edges.end(),',',' ');
-            edges += ' ';
-            newedges = (edges.length()/4);
-            int arr[1300];
+            edges += " ";
+            int arr[512];
 
 	        int index = 0;
             string number;
@@ -174,33 +175,22 @@ int main(){
 
                 }
             }
-
+			newedges = (index+1)/2;
             index = 0;
             for(int i = 0;i<newedges;i++)
             {
-	         	vector<int> vt;
                  for (int j=0;j<2;j++){
-                    vt.push_back(arr[index]);
+                    edge[i].push_back(arr[index]);
 					index++;
-                }
-				edge.push_back(vt);
 
-            }
+				 }
+			}
 
-
-            for(int i=0;i<newedges;i++)
-            {
-                for(int j=0;j<2;j++)
-                {
-                    nedges++;
-                    num_of_edges = nedges/2;
-                }
-            }
-
-            get_vertex_cover(vertices,edge);
-        }
-
-
+            get_vertex_cover(vertices,edge,newedges);
+        	for(int i=0;i<newedges;i++){
+		    	edge[i].clear();
+			}
+		}
 
     }
 
