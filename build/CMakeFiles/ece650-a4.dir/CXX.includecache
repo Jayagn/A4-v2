@@ -120,11 +120,11 @@ zlib.h
 minisat/mtl/XAlloc.h
 ../minisat/minisat/utils/minisat/mtl/XAlloc.h
 
-/home/jayagn/A4-v2/ece650-a4.cpp
+/home/jmodh/A4-v2/ece650-a4.cpp
 minisat/core/SolverTypes.h
-/home/jayagn/A4-v2/minisat/core/SolverTypes.h
+/home/jmodh/A4-v2/minisat/core/SolverTypes.h
 minisat/core/Solver.h
-/home/jayagn/A4-v2/minisat/core/Solver.h
+/home/jmodh/A4-v2/minisat/core/Solver.h
 iostream
 -
 string

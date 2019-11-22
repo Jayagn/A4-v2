@@ -6,5 +6,5 @@ CXX_FLAGS = -std=c++11 -Wall
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/jayagn/A4-v2/minisat 
+CXX_INCLUDES = -I/home/jmodh/A4-v2/minisat 
 

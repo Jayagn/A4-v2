@@ -12,11 +12,10 @@
 #include <algorithm>
 #include <bits/stdc++.h>
 #include <memory>
-#define MAX 1300
 
 
 using namespace std;
-//using namespace Minisat;
+using namespace Minisat;
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -60,7 +59,7 @@ void get_vertex_cover(int vertices,vector < vector<int> > edge_storage){
     }}}
     //No more than one vertex appears in themth position of the vertex cover.
     for (int m =0;m<k;++m){
-        for (int p =0;p<vertices;++p){
+        for (int p =0;p<vertices-1;++p){
             for (int q =0;q<vertices;++q){
                 if(q<p){
                 literals.push(~Minisat::mkLit(Minisat::Var(k*p + m)));
@@ -97,7 +96,6 @@ void get_vertex_cover(int vertices,vector < vector<int> > edge_storage){
 int main(){
 // Variables to store user input vertices , source and destination.
     int vertices;
-    int source,dest;
     int nedges = 0, newedges;
     int num_of_edges = 0;
 	vector<vector<int>> edge;
@@ -155,9 +153,9 @@ int main(){
             replace(edges.begin(),edges.end(),',',' ');
             edges += ' ';
             newedges = (edges.length()/4);
-            int *arr = (int*)malloc(sizeof(int)*MAX);
+            int arr[1300];
 
-	    int index = 0;
+	        int index = 0;
             string number;
 
             for(auto x : edges)
@@ -180,8 +178,8 @@ int main(){
             index = 0;
             for(int i = 0;i<newedges;i++)
             {
-		vector<int> vt;
-                for (int j=0;j<2;j++){
+	         	vector<int> vt;
+                 for (int j=0;j<2;j++){
                     vt.push_back(arr[index]);
 					index++;
                 }

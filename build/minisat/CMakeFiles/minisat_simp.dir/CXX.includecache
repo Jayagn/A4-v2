@@ -152,19 +152,19 @@ sys/resource.h
 unistd.h
 -
 
-/home/jayagn/A4-v2/minisat/minisat/simp/Main.cc
+/home/jmodh/A4-v2/minisat/minisat/simp/Main.cc
 errno.h
 -
 zlib.h
 -
 minisat/utils/System.h
-/home/jayagn/A4-v2/minisat/minisat/simp/minisat/utils/System.h
+/home/jmodh/A4-v2/minisat/minisat/simp/minisat/utils/System.h
 minisat/utils/ParseUtils.h
-/home/jayagn/A4-v2/minisat/minisat/simp/minisat/utils/ParseUtils.h
+/home/jmodh/A4-v2/minisat/minisat/simp/minisat/utils/ParseUtils.h
 minisat/utils/Options.h
-/home/jayagn/A4-v2/minisat/minisat/simp/minisat/utils/Options.h
+/home/jmodh/A4-v2/minisat/minisat/simp/minisat/utils/Options.h
 minisat/core/Dimacs.h
-/home/jayagn/A4-v2/minisat/minisat/simp/minisat/core/Dimacs.h
+/home/jmodh/A4-v2/minisat/minisat/simp/minisat/core/Dimacs.h
 minisat/simp/SimpSolver.h
-/home/jayagn/A4-v2/minisat/minisat/simp/minisat/simp/SimpSolver.h
+/home/jmodh/A4-v2/minisat/minisat/simp/minisat/simp/SimpSolver.h
 

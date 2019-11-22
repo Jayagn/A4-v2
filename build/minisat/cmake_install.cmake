@@ -1,4 +1,4 @@
-# Install script for directory: /home/jayagn/A4-v2/minisat
+# Install script for directory: /home/jmodh/A4-v2/minisat
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/jayagn/A4-v2/build/minisat/libminisat.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/jmodh/A4-v2/build/minisat/libminisat.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -55,9 +55,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endforeach()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/home/jayagn/A4-v2/build/minisat/libminisat.so.2.1.0"
-    "/home/jayagn/A4-v2/build/minisat/libminisat.so.2"
-    "/home/jayagn/A4-v2/build/minisat/libminisat.so"
+    "/home/jmodh/A4-v2/build/minisat/libminisat.so.2.1.0"
+    "/home/jmodh/A4-v2/build/minisat/libminisat.so.2"
+    "/home/jmodh/A4-v2/build/minisat/libminisat.so"
     )
   foreach(file
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libminisat.so.2.1.0"
@@ -80,7 +80,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/minisat_core"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/jayagn/A4-v2/build/minisat/minisat_core")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/jmodh/A4-v2/build/minisat/minisat_core")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/minisat_core" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/minisat_core")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -96,7 +96,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/minisat"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/jayagn/A4-v2/build/minisat/minisat")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/jmodh/A4-v2/build/minisat/minisat")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/minisat" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/minisat")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -107,10 +107,10 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/minisat" TYPE DIRECTORY FILES
-    "/home/jayagn/A4-v2/minisat/minisat/mtl"
-    "/home/jayagn/A4-v2/minisat/minisat/utils"
-    "/home/jayagn/A4-v2/minisat/minisat/core"
-    "/home/jayagn/A4-v2/minisat/minisat/simp"
+    "/home/jmodh/A4-v2/minisat/minisat/mtl"
+    "/home/jmodh/A4-v2/minisat/minisat/utils"
+    "/home/jmodh/A4-v2/minisat/minisat/core"
+    "/home/jmodh/A4-v2/minisat/minisat/simp"
     FILES_MATCHING REGEX "/[^/]*\\.h$")
 endif()
 

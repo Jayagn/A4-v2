@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC
 
 CXX_DEFINES = -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Dminisat_lib_shared_EXPORTS
 
-CXX_INCLUDES = -I/home/jayagn/A4-v2/minisat 
+CXX_INCLUDES = -I/home/jmodh/A4-v2/minisat 
 
