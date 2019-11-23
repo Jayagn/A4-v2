@@ -31,7 +31,7 @@ void get_vertex_cover(int vertices,vector<int> edge_storage[],int newedges){
               static_cast<void>(solver.newVar());
             }
           }
-    //At least one vertex is the ith vertex in the vertex cover
+    //Clause: At least one vertex is the ith vertex in the vertex cover
     for (int i = 0; i< k; ++i ){
         for (int j =0; j< vertices; ++j){
             literals.push(Minisat::mkLit(Minisat::Var(k*j + i)));
@@ -40,7 +40,7 @@ void get_vertex_cover(int vertices,vector<int> edge_storage[],int newedges){
           literals.clear();
 
     }
-    //No one vertex can appear twice in a vertex cover
+    //Clause: No one vertex can appear twice in a vertex cover
     for (int m =0;m<vertices;++m){
         for (int p =0;p<k;++p){
             for (int q =0;q<k;++q){
@@ -52,7 +52,7 @@ void get_vertex_cover(int vertices,vector<int> edge_storage[],int newedges){
 
             }
     }}}
-    //No more than one vertex appears in themth position of the vertex cover.
+    //Clause: No more than one vertex appears in the mth position of the vertex cover.
     for (int m =0;m<k;++m){
         for (int p =0;p<vertices;++p){
             for (int q =0;q<vertices;++q){
@@ -77,9 +77,9 @@ void get_vertex_cover(int vertices,vector<int> edge_storage[],int newedges){
             for (int i = 0; i < vertices; ++i)
               for (int j = 0; j < k; ++j) {
                 if (!(Minisat::toInt(solver.modelValue(i*k + j))))
-                  cout << i << " ";
+                  std::cout << i << " ";
               }
-            cout << endl;
+			std::cout << std::endl;
             break;
           }
 
@@ -88,17 +88,15 @@ void get_vertex_cover(int vertices,vector<int> edge_storage[],int newedges){
 //////////////////////////////////////////////////////////////////////////////////
 
 int main(){
-// Variables to store user input vertices , source and destination.
+// Variables to store user input vertices and edges.
     int vertices;
     int nedges = 0, newedges;
     int num_of_edges = 0;
 	vector<int> edge[512];
 
-
-    //vector<int>adj[MAX];
-    while (!cin.eof()){
+    while (!std::cin.eof()){
         string input;
-        getline(cin,input);
+        getline(std::cin,input);
         char cmd;
         cmd = input[0];
 
